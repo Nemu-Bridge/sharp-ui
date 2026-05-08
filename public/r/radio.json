@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio",
+  "type": "registry:ui",
+  "title": "Radio",
+  "description": "Styled radio input with label.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/radio.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\n\ninterface RadioProps extends Omit<\n  React.InputHTMLAttributes<HTMLInputElement>,\n  \"type\"\n> {\n  label?: string;\n}\n\nexport function Radio({\n  label,\n  checked,\n  onChange,\n  name,\n  value,\n  disabled,\n  className,\n  ...props\n}: RadioProps) {\n  return (\n    <label\n      className={cn(\n        \"inline-flex cursor-pointer items-center gap-3 text-[14px] text-[var(--foreground)] select-none\",\n        disabled && \"cursor-not-allowed text-[var(--muted-foreground)]\",\n        className,\n      )}\n    >\n      <input\n        type=\"radio\"\n        checked={checked}\n        onChange={onChange}\n        name={name}\n        value={value}\n        disabled={disabled}\n        className=\"peer hidden\"\n        {...props}\n      />\n      <span\n        className=\"inline-flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center rounded-full border-2 border-[var(--input)] bg-[var(--background)] transition-all duration-300 peer-checked:border-[var(--primary)] peer-hover:border-[var(--muted-foreground)] peer-disabled:border-[var(--border)] peer-disabled:bg-[var(--muted)]\"\n        style={\n          checked\n            ? { borderWidth: 5, borderColor: \"var(--primary)\" }\n            : undefined\n        }\n      />\n      {label && <span>{label}</span>}\n    </label>\n  );\n}\n\nexport type { RadioProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/radio.tsx"
+    }
+  ]
+}

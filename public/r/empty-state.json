@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "type": "registry:ui",
+  "title": "Empty State",
+  "description": "Centered empty state with icon, title, description, and action slots.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/empty-state.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\nimport React from \"react\";\n\ninterface EmptyStateProps {\n  children?: React.ReactNode;\n  className?: string;\n}\n\nexport function EmptyState({ children, className = \"\" }: EmptyStateProps) {\n  return (\n    <div\n      className={cn(\n        \"rounded-[3px] border-2 border-dashed border-[var(--border-strong)] bg-[var(--surface-alt)] p-16 text-center\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\ninterface EmptyStateIconProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function EmptyStateIcon({ children, className = \"\" }: EmptyStateIconProps) {\n  return (\n    <div\n      className={cn(\n        \"mb-4 flex justify-center text-[var(--muted-foreground)]\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\ninterface EmptyStateTitleProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function EmptyStateTitle({\n  children,\n  className = \"\",\n}: EmptyStateTitleProps) {\n  return (\n    <h4 className={cn(\"m-0 mt-4 mb-2 text-[16px] font-semibold\", className)}>\n      {children}\n    </h4>\n  );\n}\n\ninterface EmptyStateDescriptionProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function EmptyStateDescription({\n  children,\n  className = \"\",\n}: EmptyStateDescriptionProps) {\n  return (\n    <p\n      className={cn(\n        \"m-0 mb-6 text-[14px] text-[var(--muted-foreground)]\",\n        className,\n      )}\n    >\n      {children}\n    </p>\n  );\n}\n\ninterface EmptyStateActionProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function EmptyStateAction({\n  children,\n  className = \"\",\n}: EmptyStateActionProps) {\n  return <div className={className}>{children}</div>;\n}\n\nexport type { EmptyStateProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/empty-state.tsx"
+    }
+  ]
+}

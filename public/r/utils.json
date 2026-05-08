@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "title": "Utils",
+  "description": "cn() utility for merging Tailwind classes.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": ["sharp-ui-styles"],
+  "files": [
+    {
+      "path": "lib/cn.ts",
+      "content": "import { clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(\n  ...inputs: (\n    | string\n    | boolean\n    | undefined\n    | null\n    | Record<string, boolean | undefined | null>\n  )[]\n) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": "lib/cn.ts"
+    }
+  ]
+}

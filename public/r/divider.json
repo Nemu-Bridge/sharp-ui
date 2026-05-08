@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider",
+  "type": "registry:ui",
+  "title": "Divider",
+  "description": "Horizontal section separator.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/divider.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\n\ninterface DividerProps {\n  orientation?: \"horizontal\" | \"vertical\";\n  className?: string;\n}\n\nexport function Divider({\n  orientation = \"horizontal\",\n  className = \"\",\n}: DividerProps) {\n  return (\n    <div\n      className={cn(\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px self-stretch\",\n        \"bg-[var(--border)]\",\n        orientation === \"horizontal\" ? \"my-1\" : \"mx-1\",\n        className,\n      )}\n    />\n  );\n}\n\nexport type { DividerProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/divider.tsx"
+    }
+  ]
+}

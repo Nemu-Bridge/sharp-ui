@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon",
+  "type": "registry:ui",
+  "title": "Icon",
+  "description": "Dynamic Tabler icon component.",
+  "dependencies": ["@tabler/icons-react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\nimport React from \"react\";\nimport * as icons from \"@tabler/icons-react\";\n\ninterface IconProps {\n  name: string;\n  size?: number;\n  className?: string;\n  style?: React.CSSProperties;\n}\n\nexport function Icon({ name, size = 20, className, style }: IconProps) {\n  const pascalName = name\n    .split(\"-\")\n    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))\n    .join(\"\");\n  const iconKey = `Icon${pascalName}` as keyof typeof icons;\n  const IconComponent = icons[iconKey] as React.ComponentType<{\n    size?: number;\n    className?: string;\n    style?: React.CSSProperties;\n  }>;\n  if (!IconComponent) {\n    console.warn(`Icon \"${name}\" not found`);\n    return null;\n  }\n  return <IconComponent size={size} className={cn(className)} style={style} />;\n}\n\nexport type { IconProps };\nexport { icons };\n",
+      "type": "registry:ui",
+      "target": "components/ui/icon.tsx"
+    }
+  ]
+}

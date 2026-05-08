@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp",
+  "type": "registry:ui",
+  "title": "OTP",
+  "description": "One-time password digit input with auto-advance and backspace navigation.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/otp.tsx",
+      "content": "\"use client\";\n\nimport { useRef, useState } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\ninterface OTPProps {\n  length?: number;\n  value?: string[];\n  onChange?: (value: string[]) => void;\n  className?: string;\n}\n\nexport function OTP({\n  length = 6,\n  value: controlledValue,\n  onChange,\n  className = \"\",\n}: OTPProps) {\n  const [internal, setInternal] = useState<string[]>(() =>\n    Array(length).fill(\"\"),\n  );\n  const refs = useRef<(HTMLInputElement | null)[]>([]);\n\n  const isControlled = controlledValue !== undefined;\n  const value = isControlled ? controlledValue : internal;\n\n  const handle = (i: number, char: string) => {\n    const next = [...value];\n    next[i] = char.replace(/[^0-9]/g, \"\").slice(-1);\n    if (!isControlled) setInternal(next);\n    onChange?.(next);\n    if (char && i < length - 1) refs.current[i + 1]?.focus();\n  };\n  const key = (i: number, e: React.KeyboardEvent) => {\n    if (e.key === \"Backspace\" && !value[i] && i > 0)\n      refs.current[i - 1]?.focus();\n  };\n\n  return (\n    <div className={cn(\"flex gap-2\", className)}>\n      {Array.from({ length }).map((_, i) => (\n        <input\n          key={i}\n          ref={(el) => {\n            refs.current[i] = el;\n          }}\n          type=\"text\"\n          inputMode=\"numeric\"\n          maxLength={1}\n          value={value[i]}\n          onChange={(e) => handle(i, e.target.value)}\n          onKeyDown={(e) => key(i, e)}\n          className=\"otp-cell h-14 w-12 rounded-[3px] border border-[var(--border-strong)] bg-[var(--background)] text-center text-[22px] font-medium text-[var(--foreground)] transition-all duration-150 outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/20\"\n        />\n      ))}\n    </div>\n  );\n}\n\nexport type { OTPProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/otp.tsx"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "description": "Toggle switch input with label.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/switch.tsx",
+      "content": "\"use client\";\n\ninterface SwitchProps extends Omit<\n  React.InputHTMLAttributes<HTMLInputElement>,\n  \"type\"\n> {\n  label?: string;\n}\n\nexport function Switch({\n  label,\n  checked,\n  onChange,\n  disabled,\n  className = \"\",\n  ...props\n}: SwitchProps) {\n  return (\n    <label\n      className={`inline-flex cursor-pointer items-center gap-3 text-[14px] select-none ${disabled ? \"cursor-not-allowed opacity-50\" : \"\"} ${className}`}\n    >\n      <input\n        type=\"checkbox\"\n        checked={checked}\n        onChange={onChange}\n        disabled={disabled}\n        className=\"hidden\"\n        {...props}\n      />\n      <span\n        className=\"relative h-[22px] w-10 flex-shrink-0 rounded-[3px] transition-colors duration-150\"\n        style={{ background: checked ? \"var(--blue)\" : \"var(--border-strong)\" }}\n      >\n        <span\n          className=\"absolute top-0.5 left-0.5 h-[18px] w-[18px] rounded-[2px] bg-[var(--background)] transition-transform duration-[180ms]\"\n          style={{ transform: checked ? \"translateX(18px)\" : \"translateX(0)\" }}\n        />\n      </span>\n      {label && (\n        <span\n          className={\n            disabled\n              ? \"text-[var(--foreground-subtle)]\"\n              : \"text-[var(--foreground)]\"\n          }\n        >\n          {label}\n        </span>\n      )}\n    </label>\n  );\n}\n\nexport type { SwitchProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/switch.tsx"
+    }
+  ]
+}

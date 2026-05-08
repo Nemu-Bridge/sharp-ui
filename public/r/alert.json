@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "type": "registry:ui",
+  "title": "Alert",
+  "description": "Inline feedback banners with info, success, warning, and danger variants.",
+  "registryDependencies": ["utils", "icon"],
+  "files": [
+    {
+      "path": "components/ui/alert.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\nimport { Icon } from \"@/components/ui/icon\";\n\ntype AlertVariant = \"info\" | \"success\" | \"warning\" | \"danger\";\n\ninterface AlertProps {\n  variant?: AlertVariant;\n  className?: string;\n  children?: React.ReactNode;\n}\n\ninterface AlertTitleProps {\n  className?: string;\n  children?: React.ReactNode;\n}\n\ninterface AlertDescriptionProps {\n  className?: string;\n  children?: React.ReactNode;\n}\n\nconst config: Record<\n  AlertVariant,\n  {\n    iconName: string;\n    border: string;\n    bg: string;\n    color: string;\n  }\n> = {\n  info: {\n    iconName: \"info-circle\",\n    border: \"var(--blue-soft-border)\",\n    bg: \"var(--blue-soft)\",\n    color: \"var(--primary)\",\n  },\n  success: {\n    iconName: \"check\",\n    border: \"var(--green-soft-border)\",\n    bg: \"var(--green-soft)\",\n    color: \"var(--green)\",\n  },\n  warning: {\n    iconName: \"alert-circle\",\n    border: \"var(--amber-soft-border)\",\n    bg: \"var(--amber-soft)\",\n    color: \"var(--amber)\",\n  },\n  danger: {\n    iconName: \"circle-x\",\n    border: \"var(--red-soft-border)\",\n    bg: \"var(--red-soft)\",\n    color: \"var(--destructive)\",\n  },\n};\n\nexport function Alert({ variant = \"info\", children, className }: AlertProps) {\n  const c = config[variant];\n  return (\n    <div\n      className={cn(\n        \"flex items-start gap-4 rounded-[3px] border p-6\",\n        className,\n      )}\n      style={{ borderColor: c.border, background: c.bg }}\n    >\n      <div className=\"mt-0.5 flex-shrink-0\">\n        <Icon name={c.iconName} size={20} style={{ color: c.color }} />\n      </div>\n      <div className=\"flex-1\">{children}</div>\n    </div>\n  );\n}\n\nexport function AlertTitle({ children, className }: AlertTitleProps) {\n  return (\n    <p className={cn(\"m-0 mb-1 text-[14px] font-semibold\", className)}>\n      {children}\n    </p>\n  );\n}\n\nexport function AlertDescription({\n  children,\n  className,\n}: AlertDescriptionProps) {\n  return (\n    <p\n      className={cn(\n        \"m-0 text-[14px] leading-relaxed text-[var(--muted-foreground)]\",\n        className,\n      )}\n    >\n      {children}\n    </p>\n  );\n}\n\nexport type {\n  AlertProps,\n  AlertVariant,\n  AlertTitleProps,\n  AlertDescriptionProps,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/alert.tsx"
+    }
+  ]
+}

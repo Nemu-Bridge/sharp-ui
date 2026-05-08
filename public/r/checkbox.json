@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "Styled checkbox input with label.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/checkbox.tsx",
+      "content": "\"use client\";\n\ninterface CheckboxProps extends Omit<\n  React.InputHTMLAttributes<HTMLInputElement>,\n  \"type\"\n> {\n  label?: string;\n}\n\nexport function Checkbox({\n  label,\n  checked,\n  onChange,\n  disabled,\n  className = \"\",\n  ...props\n}: CheckboxProps) {\n  return (\n    <label\n      className={`inline-flex cursor-pointer items-center gap-3 text-[14px] text-[var(--foreground)] select-none ${disabled ? \"cursor-not-allowed text-[var(--foreground-subtle)]\" : \"\"} ${className}`}\n    >\n      <input\n        type=\"checkbox\"\n        checked={checked}\n        onChange={onChange}\n        disabled={disabled}\n        className=\"peer hidden\"\n        {...props}\n      />\n      <span\n        className={`inline-flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center rounded-[3px] border-[1.5px] border-[var(--border-strong)] bg-[var(--background)] transition-[background-color,border-color] duration-300 peer-checked:border-[var(--blue)] peer-checked:bg-[var(--blue)] ${!disabled ? \"peer-hover:border-[var(--muted-foreground)]\" : \"\"} peer-disabled:border-[var(--border)] peer-disabled:bg-[var(--surface-alt)] peer-disabled:peer-checked:border-[var(--border-strong)] peer-disabled:peer-checked:bg-[var(--border-strong)]`}\n      >\n        {checked && (\n          <span className=\"h-[6px] w-[10px] rotate-[-45deg] border-b-2 border-l-2 border-[var(--primary-foreground)]\" />\n        )}\n      </span>\n      {label && <span>{label}</span>}\n    </label>\n  );\n}\n\nexport type { CheckboxProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/checkbox.tsx"
+    }
+  ]
+}

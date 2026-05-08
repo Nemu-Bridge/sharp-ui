@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "frame",
+  "type": "registry:ui",
+  "title": "Frame",
+  "description": "Panel frame and browser chrome containers for dashboard layouts.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/frame.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\nimport React from \"react\";\n\ninterface FrameProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function Frame({ children, className = \"\" }: FrameProps) {\n  return (\n    <div\n      className={cn(\n        \"overflow-hidden rounded-[var(--radius)] border border-[var(--border)] bg-[var(--card)]\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\ninterface FrameHeaderProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function FrameHeader({ children, className = \"\" }: FrameHeaderProps) {\n  return (\n    <div\n      className={cn(\n        \"flex items-center justify-between border-b border-[var(--border)] px-7 py-5\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\ninterface FrameTitleProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function FrameTitle({ children, className = \"\" }: FrameTitleProps) {\n  return (\n    <h3 className={cn(\"m-0 text-[15px] font-semibold\", className)}>\n      {children}\n    </h3>\n  );\n}\n\ninterface FrameActionProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function FrameAction({ children, className = \"\" }: FrameActionProps) {\n  return <div className={className}>{children}</div>;\n}\n\ninterface FrameContentProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function FrameContent({ children, className = \"\" }: FrameContentProps) {\n  return <div className={cn(\"p-8\", className)}>{children}</div>;\n}\n\ninterface BrowserFrameProps {\n  url?: string;\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function BrowserFrame({\n  url = \"example.com\",\n  children,\n  className,\n}: BrowserFrameProps) {\n  return (\n    <div\n      className={cn(\n        \"overflow-hidden rounded-[var(--radius)] border border-[var(--border)]\",\n        className,\n      )}\n    >\n      <div className=\"flex h-11 items-center gap-2 border-b border-[var(--border)] bg-[var(--muted)] px-4\">\n        <div className=\"mr-4 flex gap-1.5\">\n          <span className=\"h-2.5 w-2.5 rounded-full bg-[var(--border)]\" />\n          <span className=\"h-2.5 w-2.5 rounded-full bg-[var(--border)]\" />\n          <span className=\"h-2.5 w-2.5 rounded-full bg-[var(--border)]\" />\n        </div>\n        <div className=\"flex h-7 flex-1 items-center rounded-[var(--radius)] border border-[var(--border)] bg-[var(--background)] px-3 text-xs tracking-wide text-[var(--muted-foreground)]\">\n          {url}\n        </div>\n      </div>\n      <div className=\"min-h-[280px] p-10\">{children}</div>\n    </div>\n  );\n}\n\nexport type {\n  FrameProps,\n  FrameHeaderProps,\n  FrameTitleProps,\n  FrameActionProps,\n  FrameContentProps,\n  BrowserFrameProps,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/frame.tsx"
+    }
+  ]
+}

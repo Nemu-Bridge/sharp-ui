@@ -1,0 +1,51 @@
+{
+  "name": "@nemu-ai/sharp-ui",
+  "version": "0.1.0",
+  "description": "A sharp-edged component registry for React. All components are unstyled at the token level - you control the design through CSS variables - and installed directly into your project via the shadcn CLI rather than imported from a package.",
+  "homepage": "https://sharp.dragos.cc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nemu-Bridge/sharp-ui.git"
+  },
+  "license": "MIT",
+  "files": [
+    "registry.json"
+  ],
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "registry:build": "shadcn build"
+  },
+  "dependencies": {
+    "@base-ui-components/react": "^1.0.0-rc.0",
+    "@tabler/icons-react": "^3.42.0",
+    "@tanstack/react-table": "^8.21.3",
+    "clsx": "^2.1.1",
+    "motion": "^12.0.0",
+    "next": "^16.2.4",
+    "next-themes": "^0.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "shadcn": "^3.0.0",
+    "shiki": "^4.0.2",
+    "tailwind-merge": "^3.3.1",
+    "tw-animate-css": "^1.3.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^20.19.9",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "eslint": "^9.32.0",
+    "eslint-config-next": "15.3.1",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.9.2"
+  },
+  "overrides": {
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2"
+  }
+}

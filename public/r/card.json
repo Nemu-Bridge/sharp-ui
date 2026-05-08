@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Surface container with title, description, and footer slots.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/card.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\n\ninterface CardProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\ninterface CardTitleProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\ninterface CardDescriptionProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\ninterface CardFooterProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function Card({ children, className = \"\" }: CardProps) {\n  return (\n    <div\n      className={cn(\n        \"rounded-[4px] border border-[var(--border)] bg-[var(--background)] p-8\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\nexport function CardTitle({ children, className = \"\" }: CardTitleProps) {\n  return (\n    <h3\n      className={cn(\n        \"m-0 mb-2 text-[18px] font-semibold tracking-tight\",\n        className,\n      )}\n    >\n      {children}\n    </h3>\n  );\n}\n\nexport function CardDescription({\n  children,\n  className = \"\",\n}: CardDescriptionProps) {\n  return (\n    <p\n      className={cn(\n        \"m-0 mb-6 text-[14px] leading-relaxed text-[var(--muted-foreground)]\",\n        className,\n      )}\n    >\n      {children}\n    </p>\n  );\n}\n\nexport function CardFooter({ children, className = \"\" }: CardFooterProps) {\n  return (\n    <div\n      className={cn(\n        \"mt-6 flex justify-end gap-3 border-t border-[var(--border)] pt-6\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\nexport type {\n  CardProps,\n  CardTitleProps,\n  CardDescriptionProps,\n  CardFooterProps,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/card.tsx"
+    }
+  ]
+}

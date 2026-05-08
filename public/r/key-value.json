@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "key-value",
+  "type": "registry:ui",
+  "title": "Key Value",
+  "description": "Definition list for displaying key/value pairs.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/key-value.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { cn } from \"@/lib/cn\";\n\ninterface KeyValueProps {\n  children?: React.ReactNode;\n  className?: string;\n}\n\nexport function KeyValue({ children, className = \"\" }: KeyValueProps) {\n  return (\n    <div className={cn(\"flex flex-col\", className)}>\n      {children}\n    </div>\n  );\n}\n\ninterface KeyValueItemProps {\n  label: string;\n  value: string;\n  className?: string;\n}\n\nexport function KeyValueItem({ label, value, className = \"\" }: KeyValueItemProps) {\n  return (\n    <div\n      className={cn(\n        \"flex justify-between border-b border-[var(--border)] py-3.5 text-[14px] last:border-b-0\",\n        className\n      )}\n    >\n      <span className=\"text-[var(--foreground-subtle)]\">{label}</span>\n      <span\n        style={{\n          fontFamily: label.toLowerCase().includes(\"id\")\n            ? \"'JetBrains Mono', monospace\"\n            : \"inherit\",\n          fontWeight: 500,\n        }}\n      >\n        {value}\n      </span>\n    </div>\n  );\n}\n\nexport type { KeyValueProps };\n",
+      "type": "registry:ui",
+      "target": "components/ui/key-value.tsx"
+    }
+  ]
+}

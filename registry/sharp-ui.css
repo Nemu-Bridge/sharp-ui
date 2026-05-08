@@ -1,0 +1,200 @@
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #005bff;
+  --primary-foreground: #ffffff;
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #475569;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #cbd5e1;
+  --ring: #005bff;
+  --radius: 3px;
+  --foreground-subtle: #64748b;
+  --border-strong: #cbd5e1;
+  --border-focus: #005bff;
+  --surface-alt: #f8fafc;
+  --surface-hover: #f1f5f9;
+  --blue: #005bff;
+  --blue-hover: #0048cc;
+  --blue-active: #003ba8;
+  --blue-soft: #eff4ff;
+  --blue-soft-border: #c7daff;
+  --blue-foreground: #ffffff;
+  --green: #16a34a;
+  --green-soft: #f0fdf4;
+  --green-soft-border: #bbf7d0;
+  --green-foreground: #ffffff;
+  --amber: #d97706;
+  --amber-soft: #fffbeb;
+  --amber-soft-border: #fed7aa;
+  --amber-foreground: #ffffff;
+  --red: #dc2626;
+  --red-soft: #fef2f2;
+  --red-soft-border: #fecaca;
+  --red-foreground: #ffffff;
+  --violet: #7c3aed;
+  --violet-soft: #f5f3ff;
+  --violet-soft-border: #ddd6fe;
+  --kbd-bg: #f8fafc;
+  --modal-overlay: rgba(15, 23, 42, 0.4);
+}
+
+.dark {
+  --background: #0e1014;
+  --foreground: #ecedee;
+  --card: #0e1014;
+  --card-foreground: #ecedee;
+  --popover: #0e1014;
+  --popover-foreground: #ecedee;
+  --primary: #4f8cff;
+  --primary-foreground: #0e1014;
+  --secondary: #16181c;
+  --secondary-foreground: #ecedee;
+  --muted: #16181c;
+  --muted-foreground: #9ba1a6;
+  --accent: #1e2125;
+  --accent-foreground: #ecedee;
+  --destructive: #f87171;
+  --destructive-foreground: #0e1014;
+  --warning: #fbbf24;
+  --warning-foreground: #0e1014;
+  --success: #4ade80;
+  --success-foreground: #0e1014;
+  --border: #232629;
+  --input: #3a3d42;
+  --ring: #4f8cff;
+  --radius: 3px;
+  --foreground-subtle: #6f7378;
+  --border-strong: #3a3d42;
+  --border-focus: #4f8cff;
+  --surface-alt: #16181c;
+  --surface-hover: #1e2125;
+  --blue: #4f8cff;
+  --blue-hover: #6b9eff;
+  --blue-active: #3d7ae8;
+  --blue-soft: #0f1a33;
+  --blue-soft-border: #1f3160;
+  --blue-foreground: #0e1014;
+  --green: #4ade80;
+  --green-soft: #0b1f15;
+  --green-soft-border: #14422a;
+  --green-foreground: #0e1014;
+  --amber: #fbbf24;
+  --amber-soft: #221704;
+  --amber-soft-border: #5c3d0d;
+  --amber-foreground: #0e1014;
+  --red: #f87171;
+  --red-soft: #1f0b0d;
+  --red-soft-border: #5c1d22;
+  --red-foreground: #0e1014;
+  --violet: #a78bfa;
+  --violet-soft: #150e2a;
+  --violet-soft-border: #3b2870;
+  --kbd-bg: #16181c;
+  --modal-overlay: rgba(0, 0, 0, 0.65);
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}
+
+@keyframes content-show {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes content-hide {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+
+@keyframes overlay-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-subtle);
+}
+
+.btn-link {
+  position: relative;
+  padding: 0 4px;
+}
+.btn-link::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.btn-link:hover::after {
+  transform: scaleX(1);
+}

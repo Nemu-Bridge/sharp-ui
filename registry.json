@@ -1,0 +1,648 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "@nemu-ai/sharp-ui",
+  "homepage": "https://github.com/hiraeeth/sharp-ui",
+  "items": [
+    {
+      "name": "sharp-ui-styles",
+      "type": "registry:file",
+      "title": "Sharp UI Styles",
+      "description": "CSS variables, keyframe animations, and utilities for Sharp UI. Import this file in your globals.css.",
+      "files": [
+        {
+          "path": "registry/sharp-ui.css",
+          "type": "registry:file",
+          "target": "app/sharp-ui.css"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "cn() utility for merging Tailwind classes.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["sharp-ui-styles"],
+      "files": [
+        {
+          "path": "lib/cn.ts",
+          "type": "registry:lib",
+          "target": "lib/cn.ts"
+        }
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "Dynamic Tabler icon component.",
+      "dependencies": ["@tabler/icons-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/icon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Animated expand/collapse sections.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline feedback banners with info, success, warning, and danger variants.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Initials-based avatar with size variants and stacking.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Compact status and metadata chips.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Hierarchical page location breadcrumb.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code block",
+      "description": "Shiki-powered syntax-highlighted code block with Sharp UI themes, language selector, copy button, and optional line numbers.",
+      "dependencies": ["shiki"],
+      "registryDependencies": ["utils", "icon", "select"],
+      "files": [
+        {
+          "path": "components/ui/code-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Primary, secondary, ghost, destructive, and link button variants.",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Embeddable month calendar with date selection.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Surface container with title, description, and footer slots.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Styled checkbox input with label.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "⌘K command palette with search, grouped items, and optional tabs.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/command-palette.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/command-palette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "Sortable, paginated data table built on TanStack Table.",
+      "dependencies": ["@tanstack/react-table"],
+      "registryDependencies": ["utils", "icon", "button", "table"],
+      "files": [
+        {
+          "path": "components/ui/data-table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/data-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-range-picker",
+      "type": "registry:ui",
+      "title": "Date Range Picker",
+      "description": "Two-month calendar range picker with presets and apply/cancel actions.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/date-range-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/date-range-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Accessible modal dialog built on Base UI with animated backdrop.",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "divider",
+      "type": "registry:ui",
+      "title": "Divider",
+      "description": "Horizontal section separator.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/divider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/divider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Animated side sheet that slides in from the right.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Accessible dropdown with labels, items, separators, and keyboard shortcuts.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropzone",
+      "type": "registry:ui",
+      "title": "Dropzone",
+      "description": "Drag-and-drop file upload area.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/dropzone.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropzone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "description": "Centered empty state with icon, title, description, and action slots.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/empty-state.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/empty-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "frame",
+      "type": "registry:ui",
+      "title": "Frame",
+      "description": "Panel frame and browser chrome containers for dashboard layouts.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/frame.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/frame.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Floating-label text input with error, helper, password, and multiline variants.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "key-value",
+      "type": "registry:ui",
+      "title": "Key Value",
+      "description": "Definition list for displaying key/value pairs.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/key-value.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/key-value.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi Select",
+      "description": "Searchable multi-select with inline chip display.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/multi-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/multi-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "otp",
+      "type": "registry:ui",
+      "title": "OTP",
+      "description": "One-time password digit input with auto-advance and backspace navigation.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/otp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page navigation with prev/next and numbered page buttons.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Anchored floating panel with title, body, footer, and item slots.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Animated progress bar.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "Styled radio input with label.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/radio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented Control",
+      "description": "Button-group control for mutually exclusive options.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/segmented-control.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/segmented-control.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Custom single-select dropdown matching input height.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholder with animated shimmer.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Range slider input.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Multi-step progress indicator with done, current, and upcoming states.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Alert banner with title, description, and action slots.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/banner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Tag/chip component with remove button and color variants.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/chip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Star rating component with customizable max stars and sizes.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/rating.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/rating.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Button-style toggle with pressed state and icon.",
+      "registryDependencies": ["utils", "icon"],
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switch input with label.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch-row",
+      "type": "registry:ui",
+      "title": "Switch Row",
+      "description": "Full-width labeled switch for settings lists.",
+      "registryDependencies": ["utils", "switch"],
+      "files": [
+        {
+          "path": "components/ui/switch-row.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Base table primitives: Table, Header, Body, Row, Head, Cell.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Underline and pill tab variants with panel content.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Hover tooltip with trigger and content slots.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ]
+    }
+  ]
+}

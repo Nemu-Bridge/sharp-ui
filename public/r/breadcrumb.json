@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "type": "registry:ui",
+  "title": "Breadcrumb",
+  "description": "Hierarchical page location breadcrumb.",
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "components/ui/breadcrumb.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\nimport React from \"react\";\n\ninterface BreadcrumbProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function Breadcrumb({ children, className = \"\" }: BreadcrumbProps) {\n  return (\n    <div\n      className={cn(\n        \"flex items-center gap-2 text-[14px] text-[var(--muted-foreground)]\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\ninterface BreadcrumbItemProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function BreadcrumbItem({\n  children,\n  className = \"\",\n}: BreadcrumbItemProps) {\n  return (\n    <span className={cn(\"flex items-center gap-2\", className)}>{children}</span>\n  );\n}\n\ninterface BreadcrumbSeparatorProps {\n  className?: string;\n}\n\nexport function BreadcrumbSeparator({\n  className = \"\",\n}: BreadcrumbSeparatorProps) {\n  return <span className={cn(\"text-[var(--border)]\", className)}>/</span>;\n}\n\ninterface BreadcrumbLinkProps {\n  children: React.ReactNode;\n  href?: string;\n  className?: string;\n}\n\nexport function BreadcrumbLink({\n  children,\n  href,\n  className = \"\",\n}: BreadcrumbLinkProps) {\n  if (href) {\n    return (\n      <a\n        href={href}\n        className={cn(\n          \"text-[var(--muted-foreground)] no-underline transition-colors hover:text-[var(--foreground)]\",\n          className,\n        )}\n      >\n        {children}\n      </a>\n    );\n  }\n  return <span className={className}>{children}</span>;\n}\n\ninterface BreadcrumbPageProps {\n  children: React.ReactNode;\n  className?: string;\n}\n\nexport function BreadcrumbPage({\n  children,\n  className = \"\",\n}: BreadcrumbPageProps) {\n  return (\n    <span className={cn(\"font-medium text-[var(--foreground)]\", className)}>\n      {children}\n    </span>\n  );\n}\n\nexport type {\n  BreadcrumbProps,\n  BreadcrumbItemProps,\n  BreadcrumbSeparatorProps,\n  BreadcrumbLinkProps,\n  BreadcrumbPageProps,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/breadcrumb.tsx"
+    }
+  ]
+}
