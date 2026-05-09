@@ -8,7 +8,12 @@
     "url": "git+https://github.com/Nemu-Bridge/sharp-ui.git"
   },
   "license": "MIT",
+  "bin": {
+    "sharp-ui": "./bin/index.js"
+  },
   "files": [
+    "bin",
+    "public/r",
     "registry.json"
   ],
   "scripts": {

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sharp-ui",
+  "type": "registry:theme",
+  "title": "Sharp UI",
+  "description": "Initializes Sharp UI — installs base styles and utilities.",
+  "registryDependencies": [
+    "https://sharp.dragos.cc/r/sharp-ui-styles.json",
+    "https://sharp.dragos.cc/r/utils.json"
+  ]
+}

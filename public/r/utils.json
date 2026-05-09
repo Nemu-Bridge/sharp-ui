@@ -5,7 +5,7 @@
   "title": "Utils",
   "description": "cn() utility for merging Tailwind classes.",
   "dependencies": ["clsx", "tailwind-merge"],
-  "registryDependencies": ["sharp-ui-styles"],
+  "registryDependencies": ["https://sharp.dragos.cc/r/sharp-ui-styles.json"],
   "files": [
     {
       "path": "lib/cn.ts",
