@@ -6,15 +6,43 @@ Preview: https://sharp.dragos.cc
 
 Installation
 
-Run this in your project to initialize Sharp UI:
+### Quick setup
+
+Run this in your project root:
 
 ```
 npx @nemu-ai/sharp-ui
 ```
 
-This sets up your project, injects all CSS variables and global styles into your `globals.css` automatically, and configures the registry for future installs.
+This configures shadcn, registers the `@nemu-ai` scope, and injects all CSS variables and global styles into your `globals.css` automatically.
 
-Add individual components after init:
+### Manual setup
+
+**1. Initialize shadcn** (skip if already done):
+
+```
+npx shadcn@latest init
+```
+
+**2. Add the Sharp UI registry to your `components.json`:**
+
+```json
+{
+  "registries": {
+    "@nemu-ai": "https://sharp.dragos.cc/r/{name}.json"
+  }
+}
+```
+
+**3. Install base styles and utilities:**
+
+```
+npx shadcn@latest add @nemu-ai/utils
+```
+
+This injects all CSS variables and global styles into your `globals.css` automatically. No manual imports needed.
+
+### Adding components
 
 ```
 npx shadcn@latest add @nemu-ai/button

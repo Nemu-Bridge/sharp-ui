@@ -5,7 +5,7 @@ const { spawnSync } = require("child_process");
 const { resolve } = require("path");
 
 const registry_scope = "@nemu-ai";
-const registry_url = "https://sharp.dragos.cc/r";
+const registry_url = "https://sharp.dragos.cc/r/{name}.json";
 const cwd = process.cwd();
 const components_json_path = resolve(cwd, "components.json");
 
