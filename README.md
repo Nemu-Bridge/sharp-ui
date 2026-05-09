@@ -6,22 +6,20 @@ Preview: https://sharp.dragos.cc
 
 Installation
 
-Initialize the registry in your project:
+Run this in your project to initialize Sharp UI:
 
 ```
-bunx --bun shadcn@latest init @nemu-ai/sharp-ui
+npx @nemu-ai/sharp-ui
 ```
 
-Install individual components:
+This sets up your project, injects all CSS variables and global styles into your `globals.css` automatically, and configures the registry for future installs.
+
+Add individual components after init:
 
 ```
-bunx --bun shadcn@latest add https://sharp.dragos.cc/r/button
-```
-
-Or using the scoped name after init:
-
-```
-bunx --bun shadcn@latest add @nemu-ai/sharp-ui/button
+npx shadcn@latest add @nemu-ai/button
+npx shadcn@latest add @nemu-ai/input
+npx shadcn@latest add @nemu-ai/dialog
 ```
 
 Requirements
@@ -39,16 +37,7 @@ Some components have peer dependencies that the CLI installs automatically:
 
 Globals
 
-Install the styles package first. It writes `app/sharp-ui.css` and you import it in your layout:
-
-```
-bunx --bun shadcn@latest add https://sharp.dragos.cc/r/sharp-ui-styles
-```
-
-```tsx
-// app/layout.tsx
-import "./sharp-ui.css";
-```
+CSS variables and global styles are injected into your `globals.css` automatically during init. No manual imports needed.
 
 All components read from CSS custom properties. Override any variable in your own stylesheet to retheme everything at once.
 
