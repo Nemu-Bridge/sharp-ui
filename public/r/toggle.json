@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "Button-style toggle with pressed state and icon.",
+  "registryDependencies": [
+    "utils",
+    "icon"
+  ],
+  "files": [
+    {
+      "path": "components/ui/toggle.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/cn\";\r\nimport { Icon } from \"@/components/ui/icon\";\r\n\r\ninterface ToggleProps {\r\n  pressed?: boolean;\r\n  onPressedChange?: (pressed: boolean) => void;\r\n  label?: string;\r\n  className?: string;\r\n  disabled?: boolean;\r\n  variant?: \"default\" | \"outline\";\r\n}\r\n\r\nexport function Toggle({\r\n  pressed = false,\r\n  onPressedChange,\r\n  label,\r\n  className = \"\",\r\n  disabled = false,\r\n  variant = \"default\",\r\n}: ToggleProps) {\r\n  return (\r\n    <button\r\n      type=\"button\"\r\n      onClick={() => !disabled && onPressedChange?.(!pressed)}\r\n      disabled={disabled}\r\n      className={cn(\r\n        \"inline-flex h-8 cursor-pointer items-center gap-1.5 rounded-[3px] px-3.5 text-[13px] font-medium transition-colors duration-150\",\r\n        pressed\r\n          ? \"bg-[var(--foreground)] text-[var(--background)]\"\r\n          : \"bg-[var(--surface-alt)] text-[var(--foreground)] hover:bg-[var(--surface-hover)]\",\r\n        disabled && \"cursor-not-allowed opacity-50\",\r\n        variant === \"outline\" && \"border\",\r\n        variant === \"outline\" &&\r\n          pressed &&\r\n          \"border-[var(--foreground)] bg-transparent text-[var(--foreground)]\",\r\n        variant === \"outline\" && !pressed && \"border-[var(--border)]\",\r\n        className,\r\n      )}\r\n    >\r\n      {label}\r\n    </button>\r\n  );\r\n}\r\n\r\nexport type { ToggleProps };\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/toggle.tsx"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rating",
+  "type": "registry:ui",
+  "title": "Rating",
+  "description": "Star rating component with customizable max stars and sizes.",
+  "registryDependencies": [
+    "utils",
+    "icon"
+  ],
+  "files": [
+    {
+      "path": "components/ui/rating.tsx",
+      "content": "\"use client\";\r\n\r\nimport { motion } from \"motion/react\";\r\nimport { cn } from \"@/lib/cn\";\r\nimport { Icon } from \"@/components/ui/icon\";\r\n\r\ninterface RatingProps {\r\n  value?: number;\r\n  onChange?: (value: number) => void;\r\n  max?: number;\r\n  className?: string;\r\n  disabled?: boolean;\r\n  size?: \"sm\" | \"md\" | \"lg\";\r\n}\r\n\r\nexport function Rating({\r\n  value = 0,\r\n  onChange,\r\n  max = 5,\r\n  className = \"\",\r\n  disabled = false,\r\n  size = \"md\",\r\n}: RatingProps) {\r\n  const sizes = {\r\n    sm: 14,\r\n    md: 20,\r\n    lg: 26,\r\n  };\r\n\r\n  const iconSize = sizes[size];\r\n\r\n  return (\r\n    <div className={cn(\"flex items-center gap-1\", className)}>\r\n      {Array.from({ length: max }, (_, i) => {\r\n        const rating = i + 1;\r\n        const filled = rating <= value;\r\n\r\n        return (\r\n          <motion.button\r\n            key={i}\r\n            type=\"button\"\r\n            disabled={disabled}\r\n            onClick={() => !disabled && onChange?.(rating)}\r\n            className={cn(\r\n              \"relative cursor-pointer rounded-[3px] p-0.5\",\r\n              disabled && \"cursor-not-allowed\",\r\n            )}\r\n            whileHover={!disabled ? { scale: 1.1 } : undefined}\r\n            whileTap={!disabled ? { scale: 0.9 } : undefined}\r\n          >\r\n            <motion.div\r\n              animate={{\r\n                scale: filled ? 1 : 0.85,\r\n              }}\r\n              transition={{ type: \"spring\", stiffness: 500, damping: 30 }}\r\n            >\r\n              <Icon\r\n                name={filled ? \"star-filled\" : \"star\"}\r\n                size={iconSize}\r\n                className={cn(\r\n                  \"block transition-colors duration-150\",\r\n                  filled\r\n                    ? \"text-[var(--amber)]\"\r\n                    : \"text-[var(--border-strong)]\",\r\n                )}\r\n              />\r\n            </motion.div>\r\n          </motion.button>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport type { RatingProps };\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/rating.tsx"
+    }
+  ]
+}

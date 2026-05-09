@@ -4,11 +4,14 @@
   "type": "registry:ui",
   "title": "Switch Row",
   "description": "Full-width labeled switch for settings lists.",
-  "registryDependencies": ["utils", "switch"],
+  "registryDependencies": [
+    "utils",
+    "switch"
+  ],
   "files": [
     {
       "path": "components/ui/switch-row.tsx",
-      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\n\ninterface SwitchRowProps {\n  label: string;\n  checked?: boolean;\n  onChange?: (checked: boolean) => void;\n  className?: string;\n}\n\nexport function SwitchRow({\n  label,\n  checked,\n  onChange,\n  className = \"\",\n}: SwitchRowProps) {\n  return (\n    <label\n      className={cn(\n        \"flex cursor-pointer items-center justify-between py-2 text-[14px]\",\n        className,\n      )}\n    >\n      <span>{label}</span>\n      <span\n        className=\"relative h-[22px] w-10 flex-shrink-0 rounded-[3px] transition-colors duration-150\"\n        style={{ background: checked ? \"var(--blue)\" : \"var(--border-strong)\" }}\n        onClick={(e) => {\n          e.preventDefault();\n          onChange?.(!checked);\n        }}\n      >\n        <span\n          className=\"absolute top-0.5 left-0.5 h-[18px] w-[18px] rounded-[2px] bg-[var(--background)] transition-transform duration-[180ms]\"\n          style={{ transform: checked ? \"translateX(18px)\" : \"translateX(0)\" }}\n        />\n      </span>\n    </label>\n  );\n}\n\nexport type { SwitchRowProps };\n",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/cn\";\r\n\r\ninterface SwitchRowProps {\r\n  label: string;\r\n  checked?: boolean;\r\n  onChange?: (checked: boolean) => void;\r\n  className?: string;\r\n}\r\n\r\nexport function SwitchRow({\r\n  label,\r\n  checked,\r\n  onChange,\r\n  className = \"\",\r\n}: SwitchRowProps) {\r\n  return (\r\n    <label\r\n      className={cn(\r\n        \"flex cursor-pointer items-center justify-between px-5 py-3 text-[14px]\",\r\n        className,\r\n      )}\r\n    >\r\n      <span>{label}</span>\r\n      <span\r\n        className=\"relative h-[22px] w-10 flex-shrink-0 rounded-[3px] transition-colors duration-150\"\r\n        style={{ background: checked ? \"var(--blue)\" : \"var(--border-strong)\" }}\r\n        onClick={(e) => {\r\n          e.preventDefault();\r\n          onChange?.(!checked);\r\n        }}\r\n      >\r\n        <span\r\n          className=\"absolute top-0.5 left-0.5 h-[18px] w-[18px] rounded-[2px] bg-[var(--background)] transition-transform duration-[180ms]\"\r\n          style={{ transform: checked ? \"translateX(18px)\" : \"translateX(0)\" }}\r\n        />\r\n      </span>\r\n    </label>\r\n  );\r\n}\r\n\r\nexport type { SwitchRowProps };\r\n",
       "type": "registry:ui",
       "target": "components/ui/switch-row.tsx"
     }

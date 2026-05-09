@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chip",
+  "type": "registry:ui",
+  "title": "Chip",
+  "description": "Tag/chip component with remove button and color variants.",
+  "registryDependencies": [
+    "utils",
+    "icon"
+  ],
+  "files": [
+    {
+      "path": "components/ui/chip.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/cn\";\r\nimport { Icon } from \"@/components/ui/icon\";\r\n\r\ninterface ChipProps {\r\n  label: string;\r\n  onRemove?: () => void;\r\n  className?: string;\r\n  variant?: \"default\" | \"success\" | \"warning\" | \"danger\" | \"info\";\r\n}\r\n\r\nexport function Chip({\r\n  label,\r\n  onRemove,\r\n  className = \"\",\r\n  variant = \"default\",\r\n}: ChipProps) {\r\n  const variants = {\r\n    default:\r\n      \"bg-[var(--surface-alt)] text-[var(--foreground)] border-[var(--border)]\",\r\n    success:\r\n      \"bg-[var(--green-soft)] text-[var(--green)] border-[var(--green-soft-border)]\",\r\n    warning:\r\n      \"bg-[var(--amber-soft)] text-[var(--amber)] border-[var(--amber-soft-border)]\",\r\n    danger:\r\n      \"bg-[var(--red-soft)] text-[var(--red)] border-[var(--red-soft-border)]\",\r\n    info: \"bg-[var(--blue-soft)] text-[var(--blue)] border-[var(--blue-soft-border)]\",\r\n  };\r\n\r\n  return (\r\n    <span\r\n      className={cn(\r\n        \"inline-flex items-center gap-1.5 rounded-[3px] border px-2 py-1 text-[12px] font-medium\",\r\n        variants[variant],\r\n        className,\r\n      )}\r\n    >\r\n      {label}\r\n      {onRemove && (\r\n        <button\r\n          onClick={(e) => {\r\n            e.stopPropagation();\r\n            onRemove();\r\n          }}\r\n          className=\"cursor-pointer rounded-[2px] hover:bg-[var(--surface-hover)]\"\r\n        >\r\n          <Icon name=\"x\" size={12} />\r\n        </button>\r\n      )}\r\n    </span>\r\n  );\r\n}\r\n\r\nexport type { ChipProps };\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/chip.tsx"
+    }
+  ]
+}

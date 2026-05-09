@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner",
+  "type": "registry:ui",
+  "title": "Banner",
+  "description": "Alert banner with title, description, and action slots.",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/banner.tsx",
+      "content": "\"use client\";\r\n\r\nimport React from \"react\";\r\nimport { cn } from \"@/lib/cn\";\r\n\r\ninterface BannerProps {\r\n  children?: React.ReactNode;\r\n  className?: string;\r\n}\r\n\r\nexport function Banner({ children, className = \"\" }: BannerProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"rounded-[3px] border border-[var(--border)] bg-[var(--background)] p-4\",\r\n        className,\r\n      )}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\ninterface BannerTitleProps {\r\n  children?: React.ReactNode;\r\n  className?: string;\r\n}\r\n\r\nexport function BannerTitle({ children, className = \"\" }: BannerTitleProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"text-[14px] font-semibold text-[var(--foreground)]\",\r\n        className,\r\n      )}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\ninterface BannerDescriptionProps {\r\n  children?: React.ReactNode;\r\n  className?: string;\r\n}\r\n\r\nexport function BannerDescription({\r\n  children,\r\n  className = \"\",\r\n}: BannerDescriptionProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"mt-1 text-[13px] text-[var(--foreground-subtle)]\",\r\n        className,\r\n      )}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\ninterface BannerActionProps {\r\n  children?: React.ReactNode;\r\n  className?: string;\r\n}\r\n\r\nexport function BannerAction({ children, className = \"\" }: BannerActionProps) {\r\n  return <div className={cn(\"mt-3\", className)}>{children}</div>;\r\n}\r\n\r\nexport type {\r\n  BannerProps,\r\n  BannerTitleProps,\r\n  BannerDescriptionProps,\r\n  BannerActionProps,\r\n};\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/banner.tsx"
+    }
+  ]
+}

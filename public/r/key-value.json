@@ -4,11 +4,13 @@
   "type": "registry:ui",
   "title": "Key Value",
   "description": "Definition list for displaying key/value pairs.",
-  "registryDependencies": ["utils"],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "components/ui/key-value.tsx",
-      "content": "\"use client\";\n\nimport React from \"react\";\nimport { cn } from \"@/lib/cn\";\n\ninterface KeyValueProps {\n  children?: React.ReactNode;\n  className?: string;\n}\n\nexport function KeyValue({ children, className = \"\" }: KeyValueProps) {\n  return (\n    <div className={cn(\"flex flex-col\", className)}>\n      {children}\n    </div>\n  );\n}\n\ninterface KeyValueItemProps {\n  label: string;\n  value: string;\n  className?: string;\n}\n\nexport function KeyValueItem({ label, value, className = \"\" }: KeyValueItemProps) {\n  return (\n    <div\n      className={cn(\n        \"flex justify-between border-b border-[var(--border)] py-3.5 text-[14px] last:border-b-0\",\n        className\n      )}\n    >\n      <span className=\"text-[var(--foreground-subtle)]\">{label}</span>\n      <span\n        style={{\n          fontFamily: label.toLowerCase().includes(\"id\")\n            ? \"'JetBrains Mono', monospace\"\n            : \"inherit\",\n          fontWeight: 500,\n        }}\n      >\n        {value}\n      </span>\n    </div>\n  );\n}\n\nexport type { KeyValueProps };\n",
+      "content": "\"use client\";\r\n\r\nimport React from \"react\";\r\nimport { cn } from \"@/lib/cn\";\r\n\r\ninterface KeyValueProps {\r\n  children?: React.ReactNode;\r\n  className?: string;\r\n}\r\n\r\nexport function KeyValue({ children, className = \"\" }: KeyValueProps) {\r\n  return <div className={cn(\"flex flex-col\", className)}>{children}</div>;\r\n}\r\n\r\ninterface KeyValueItemProps {\r\n  label: string;\r\n  value: string;\r\n  className?: string;\r\n}\r\n\r\nexport function KeyValueItem({\r\n  label,\r\n  value,\r\n  className = \"\",\r\n}: KeyValueItemProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"flex justify-between border-b border-[var(--border)] py-3.5 text-[14px] last:border-b-0\",\r\n        className,\r\n      )}\r\n    >\r\n      <span className=\"text-[var(--foreground-subtle)]\">{label}</span>\r\n      <span\r\n        style={{\r\n          fontFamily: label.toLowerCase().includes(\"id\")\r\n            ? \"'JetBrains Mono', monospace\"\r\n            : \"inherit\",\r\n          fontWeight: 500,\r\n        }}\r\n      >\r\n        {value}\r\n      </span>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport type { KeyValueProps };\r\n",
       "type": "registry:ui",
       "target": "components/ui/key-value.tsx"
     }

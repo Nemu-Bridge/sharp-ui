@@ -4,12 +4,17 @@
   "type": "registry:lib",
   "title": "Utils",
   "description": "cn() utility for merging Tailwind classes.",
-  "dependencies": ["clsx", "tailwind-merge"],
-  "registryDependencies": ["https://sharp.dragos.cc/r/sharp-ui-styles.json"],
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [
+    "https://sharp.dragos.cc/r/sharp-ui-styles.json"
+  ],
   "files": [
     {
       "path": "lib/cn.ts",
-      "content": "import { clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(\n  ...inputs: (\n    | string\n    | boolean\n    | undefined\n    | null\n    | Record<string, boolean | undefined | null>\n  )[]\n) {\n  return twMerge(clsx(inputs));\n}\n",
+      "content": "import { clsx } from \"clsx\";\r\nimport { twMerge } from \"tailwind-merge\";\r\n\r\nexport function cn(\r\n  ...inputs: (\r\n    | string\r\n    | boolean\r\n    | undefined\r\n    | null\r\n    | Record<string, boolean | undefined | null>\r\n  )[]\r\n) {\r\n  return twMerge(clsx(inputs));\r\n}\r\n",
       "type": "registry:lib",
       "target": "lib/cn.ts"
     }

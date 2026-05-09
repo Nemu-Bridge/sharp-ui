@@ -4,11 +4,13 @@
   "type": "registry:ui",
   "title": "Divider",
   "description": "Horizontal section separator.",
-  "registryDependencies": ["utils"],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "components/ui/divider.tsx",
-      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\n\ninterface DividerProps {\n  orientation?: \"horizontal\" | \"vertical\";\n  className?: string;\n}\n\nexport function Divider({\n  orientation = \"horizontal\",\n  className = \"\",\n}: DividerProps) {\n  return (\n    <div\n      className={cn(\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px self-stretch\",\n        \"bg-[var(--border)]\",\n        orientation === \"horizontal\" ? \"my-1\" : \"mx-1\",\n        className,\n      )}\n    />\n  );\n}\n\nexport type { DividerProps };\n",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/cn\";\r\n\r\ninterface DividerProps {\r\n  orientation?: \"horizontal\" | \"vertical\";\r\n  className?: string;\r\n}\r\n\r\nexport function Divider({\r\n  orientation = \"horizontal\",\r\n  className = \"\",\r\n}: DividerProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px self-stretch\",\r\n        \"bg-[var(--border)]\",\r\n        orientation === \"horizontal\" ? \"my-1\" : \"mx-1\",\r\n        className,\r\n      )}\r\n    />\r\n  );\r\n}\r\n\r\nexport type { DividerProps };\r\n",
       "type": "registry:ui",
       "target": "components/ui/divider.tsx"
     }

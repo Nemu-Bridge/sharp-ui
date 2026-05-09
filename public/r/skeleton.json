@@ -4,11 +4,13 @@
   "type": "registry:ui",
   "title": "Skeleton",
   "description": "Loading placeholder with animated shimmer.",
-  "registryDependencies": ["utils"],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "components/ui/skeleton.tsx",
-      "content": "\"use client\";\n\nimport { cn } from \"@/lib/cn\";\n\ninterface SkeletonProps {\n  width?: string | number;\n  height?: string | number;\n  className?: string;\n}\n\nexport function Skeleton({ width, height, className }: SkeletonProps) {\n  return (\n    <div\n      className={cn(\"animate-pulse rounded-[2px]\", className)}\n      style={{\n        width: width ?? \"100%\",\n        height: height ?? \"12px\",\n        background:\n          \"linear-gradient(90deg, var(--muted) 0%, var(--accent) 50%, var(--muted) 100%)\",\n        backgroundSize: \"200% 100%\",\n      }}\n    />\n  );\n}\n\nexport type { SkeletonProps };\n",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/cn\";\r\n\r\ninterface SkeletonProps {\r\n  width?: string | number;\r\n  height?: string | number;\r\n  className?: string;\r\n}\r\n\r\nexport function Skeleton({ width, height, className }: SkeletonProps) {\r\n  return (\r\n    <div\r\n      className={cn(\"animate-pulse rounded-[2px]\", className)}\r\n      style={{\r\n        width: width ?? \"100%\",\r\n        height: height ?? \"12px\",\r\n        background:\r\n          \"linear-gradient(90deg, var(--muted) 0%, var(--accent) 50%, var(--muted) 100%)\",\r\n        backgroundSize: \"200% 100%\",\r\n      }}\r\n    />\r\n  );\r\n}\r\n\r\nexport type { SkeletonProps };\r\n",
       "type": "registry:ui",
       "target": "components/ui/skeleton.tsx"
     }
