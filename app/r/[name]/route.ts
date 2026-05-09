@@ -25,7 +25,7 @@ export async function GET(
 
   const origin = getOrigin(request);
 
-  const files = item.files.map((file) => {
+  const files = (item.files ?? []).map((file) => {
     let content = "";
     try {
       content = readFileSync(join(process.cwd(), file.path), "utf-8");
@@ -53,7 +53,10 @@ export async function GET(
   if (registryDependencies.length)
     payload.registryDependencies = registryDependencies;
 
-  payload.files = files;
+  if ("cssVars" in item && item.cssVars) payload.cssVars = item.cssVars;
+  if ("css" in item && item.css) payload.css = item.css;
+
+  if (files.length) payload.files = files;
 
   return NextResponse.json(payload, {
     headers: {
